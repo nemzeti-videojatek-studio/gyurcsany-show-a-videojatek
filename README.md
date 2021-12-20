@@ -13,7 +13,7 @@ Legalább 5 összefüggő darab: Nagy bomba, a kis bombához képest eggyel nagy
 Ha sikerült teljesíteni a játék által generált feladatot, a játék előtt kiválasztott karakter pontszámához hozzáadódik az összes leszedett pártlogó száma, a karakterek ezalapján kerülnek rangsorolásra.
 
 ## Letöltés:
-A releases rész alatt megtalálod a neked megfelelő csomagot.
+A releases rész alatt megtalálod a neked megfelelő csomagot: https://github.com/nemzeti-videojatek-studio/gyurcsany-show-a-videojatek/releases
 
 ## Futtatás:
 Windows alatt a feri_32.exe vagy a feri_64.exe fájlt indítsd el!
