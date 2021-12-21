@@ -53,11 +53,13 @@ Ez a program kizárólag szórakoztatási céllal jött létre. Nem célja senki
 A forráskód felhasználása nem engedélyköteles, egyedül annyit kérek, hogy valamilyen módon hivatkozz erre a projektre, például a GitHub projekt linkjével. A kiadás után tőlem hivatalos frissítés nem várható.
 
 ## Felhasznált anyagok:
-Háttér és zene:
+### Háttér és zene:
 
 https://youtu.be/ZfV5Xr47ggU
 
 Innen is köszönöm a feltöltőnek! :)
+### Betűtípus:
+Mistral
 
 Jó szórakozást mindenkinek, és ha ismersz valakit, akinek tetszene ez a játék, oszd meg vele is! :)
 
