@@ -71,7 +71,7 @@ def element_mover(to_move, window):
                 to_move[i].which.moving = False
                 if to_move[i].field:
                     classes.Moving.active_field_swap -= 1
-                to_move.pop(i) # ez fontos, ha del-t használnék, azzal megsemmisülne a táblaelem is, a maradék szemetet a garbage collector megoldja
+                to_move.pop(i) # ez fontos, ha del-t használnék, azzal megsemmisülne a vitt elem is, ezt nem mindig szeretnénk
                 i -=1
 
             i += 1

@@ -2,6 +2,7 @@ import pygame
 import classes
 import others
 import game
+import os
 
 def main():
     pygame.init()
@@ -17,6 +18,8 @@ def main():
     try:
         classes.Settings.load()
     except:
+        if not os.path.exists("Data"):
+            os.mkdir("Data")
         classes.Screen.fps_index = 0
         classes.Settings.music = True
         for i in classes.CharacterData.characters:

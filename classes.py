@@ -25,7 +25,7 @@ class CharacterData:
 
     last_choice = 0
 
-    def load(): # mert nem lehet convertálni, ameddig a pygame nem aktív, de ne itt töltsük be
+    def load(): # mert nem lehet convertálni, ameddig a pygame nem aktív, de ne itt töltsük be a PyGame-t
         CharacterData.characters = [
             Characters("A producer", pygame.image.load("Files/sgy.png").convert_alpha()),
             Characters("A főszereplő", pygame.image.load("Files/gyf.png").convert_alpha()),

@@ -43,7 +43,7 @@ def game(window = pygame.display.set_mode(classes.Screen.resolution, flags = pyg
     clock = pygame.time.Clock()
     run = True
     while run:
-        if nums.steps <= 0 or nums.etalon_num <= 0:
+        if nums.steps <= 0 or nums.etalon_num <= 0: # játék végének felügyelete
             gameover = True
 
         if check and classes.Moving.active_field_swap == 0: # az automatikus leszedés előnyt élvez a felhasználóval szemben
@@ -219,7 +219,7 @@ def game(window = pygame.display.set_mode(classes.Screen.resolution, flags = pyg
 
             pygame.display.update()
         clock.tick(classes.Screen.fps_options[classes.Screen.fps_index])
-    if nums.etalon_num <= 0:
+    if nums.etalon_num <= 0: # sikerült a feladat
         return (True, nums.all_num)
     else:
         return (False, nums.all_num)
@@ -234,6 +234,7 @@ def choose_character(window):
     left = classes.Items(pygame.image.load("Files/left.png").convert_alpha(), (475, 360), True)
     right = classes.Items(pygame.image.load("Files/right.png").convert_alpha(), (805, 360), True)
     go = classes.Items(pygame.image.load("Files/go.png").convert_alpha(), (640, 620))
+    scoreboard = classes.Items(pygame.image.load("Files/scoreboard.png").convert_alpha(), (5, 654), False)
     left_end = classes.Items(pygame.image.load("Files/left_end.png").convert_alpha())
     right_end = classes.Items(pygame.image.load("Files/right_end.png").convert_alpha())
     center = classes.Items(pygame.image.load("Files/center.png").convert_alpha())
@@ -276,6 +277,8 @@ def choose_character(window):
                 moving_elements.append(classes.Moving(current_face, (803, 260)))
                 current_face = classes.Items(classes.CharacterData.characters[classes.CharacterData.last_choice].pic, (303, 260), False)
                 moving_elements.append(classes.Moving(current_face, (553, 260)))
+            elif others.button_click(scoreboard, event):
+                results(window, True)
             elif others.button_click(go, event):
                 return classes.CharacterData.last_choice
         
@@ -287,15 +290,16 @@ def choose_character(window):
         window.blit(mini_field.texture, mini_field.pos)
         fps_text = classes.Items(mistral_40.render(f"FPS: {classes.Screen.fps_options[classes.Screen.fps_index]}", True, classes.Screen.purple), (1137, 681), True)
         window.blit(fps_text.texture, fps_text.pos)
+        window.blit(scoreboard.texture, scoreboard.pos)
         window.blit(bg_faces.texture, bg_faces.pos)
         if len(moving_elements) == 0:
             window.blit(current_face.texture, current_face.pos)
         face_text = classes.Items(mistral_50.render(classes.CharacterData.characters[classes.CharacterData.last_choice].name, True, classes.Screen.blue), (640, 525), True)
         pieces = face_text.texture.get_width() // 35
         start = round(640 - (pieces / 2 + 1) * 35)
-        window.blit(left_end.texture, (start, 490))
+        window.blit(left_end.texture, (start, 490)) # moduláris szélességű fekete háttér
         start += 35
-        for i in range(pieces):
+        for _ in range(pieces):
             window.blit(center.texture, (start, 490))
             start += 35
         window.blit(right_end.texture, (start, 490))
@@ -310,17 +314,81 @@ def choose_character(window):
         pygame.display.update()
 
 def results(window, only_see, result = None, character = None):
-    if only_see:
-        data = sorted(classes.CharacterData.characters, key=classes.Characters.sort_key, reverse=True)
-    else:
+    if not only_see:
+        ok_button_1 = classes.Items(pygame.image.load("Files/ok.png").convert_alpha(), (640, 410), True)
         if result[0]:
-            print("Gratulálok, sikeresen meghosszabbítottad a Gyurcsány-showt egy újabb évaddal!")
+            success = classes.Items(pygame.image.load("Files/success.png").convert_alpha(), (640, 360), True)
+            window.blit(success.texture, success.pos)
             classes.CharacterData.characters[character].score += result[1]
         else:
-            print("Ez a bukott műsor nem kapott újabb esélyt.")
-        data = sorted(classes.CharacterData.characters, key=classes.Characters.sort_key, reverse=True)
+            fail = classes.Items(pygame.image.load("Files/fail.png").convert_alpha(), (640, 360), True)
+            window.blit(fail.texture, fail.pos)
+        window.blit(ok_button_1.texture, ok_button_1.pos)
 
-    for i in range(len(data)):
-        print(f"{i + 1}.: {data[i].name}, {data[i].score} pont.")
+        pygame.display.update()
+
+        clock = pygame.time.Clock()
+        run = True
+        while run:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    classes.Settings.save()
+                    sys.exit()
+                elif others.button_click(ok_button_1, event):
+                    run = False
+
+            clock.tick(60)
     
-    input("Nyomd meg az entert a továbblépéshez!")
+    data = sorted(classes.CharacterData.characters, key=classes.Characters.sort_key, reverse=True)
+
+    background = classes.Items(pygame.image.load("Files/bg.jpg").convert(), (0, 0), False)
+    bg_black = classes.Items(pygame.image.load("Files/bg_game.png").convert_alpha(), (640, 360), True)
+    loud = classes.Items(pygame.image.load("Files/loud.png").convert_alpha(), (1207, 647), False)
+    mute = classes.Items(pygame.image.load("Files/mute.png").convert_alpha(), (1207, 647), False)
+    ok_button_2 = classes.Items(pygame.image.load("Files/ok.png").convert_alpha(), (640, 600), True)
+
+    mistral_40 = pygame.font.Font("Files/mistral.ttf", 40)
+    mistral_60 = pygame.font.Font("Files/mistral.ttf", 60)
+
+    window.blit(background.texture, background.pos)
+    window.blit(bg_black.texture, bg_black.pos)
+    scoreboard = classes.Items(mistral_60.render("Ranglista", True, classes.Screen.blue), (640, 120), True)
+    window.blit(scoreboard.texture, scoreboard.pos)
+    top = 200
+    for i in range(len(data)):
+        margin = 200
+        name_pos = classes.Items(mistral_40.render(f"{i + 1}.: {data[i].name}", True, classes.Screen.blue), (margin, top), False)
+        window.blit(name_pos.texture, name_pos.pos)
+        face = margin + name_pos.texture.get_width() + 10
+        window.blit(pygame.transform.scale(data[i].pic, (35, 40)), (face, top))
+        score = classes.Items(mistral_40.render(f"{data[i].score} pont", True, classes.Screen.blue))
+        window.blit(score.texture, (1280 - margin - score.texture.get_width(), top))
+        top += 50
+    window.blit(ok_button_2.texture, ok_button_2.pos)
+
+    pygame.display.update()
+
+    clock = pygame.time.Clock()
+    run = True
+    while run:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                classes.Settings.save()
+                sys.exit()
+            elif others.button_click(mute, event):
+                if classes.Settings.music:
+                    classes.Settings.music = False
+                    pygame.mixer.music.set_volume(0.0)
+                else:
+                    classes.Settings.music = True
+                    pygame.mixer.music.set_volume(1.0)
+            elif others.button_click(ok_button_2, event):
+                run = False
+
+        if classes.Settings.music:
+            window.blit(mute.texture, mute.pos)
+        else:
+            window.blit(loud.texture, loud.pos)
+
+        clock.tick(60) # fölösleges több
+        pygame.display.update()
