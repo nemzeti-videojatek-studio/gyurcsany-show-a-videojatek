@@ -7,7 +7,7 @@ Ami ismeri a Candy Crush-t vagy a Homescapest, annak nem fog nagy meglepetést o
  - 4 egy vonalban, vízszintesen: A helyén 1 darab függőleges rakéta jelenik meg, ami eltűnteti a vele egy oszlopban lévő elemeket.
  - 4 egy vonalban, függőlegesen: Analóg módon az előzővel, vízszintes rakétát ad.
  - 2*2-es négyzet (akár 1 db plusz elem valamelyik oldalon): Kis bomba, aktiváláskor kitörli a közvetlen szomszédait.
- - Legalább 5 összefüggő darab: Nagy bomba, a kis bombához képest eggyel nagyobb sugárban robbant.
+ - Legalább 5 összefüggő darab T, L vagy I alakban: Nagy bomba, a kis bombához képest eggyel nagyobb sugárban robbant.
 ### Képernyőképek
 ![1](https://user-images.githubusercontent.com/96190894/146949910-261dd5ad-9fc4-4819-be54-e48dabdc373d.jpg)
 ![2](https://user-images.githubusercontent.com/96190894/146949916-229c65fa-525a-4b3a-804c-8a91a319508f.jpg)
