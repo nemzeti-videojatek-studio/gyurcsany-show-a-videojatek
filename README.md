@@ -8,6 +8,12 @@ Ami ismeri a Candy Crush-t vagy a Homescapest, annak nem fog nagy meglepetést o
  - 4 egy vonalban, függőlegesen: Analóg módon az előzővel, vízszintes rakétát ad.
  - 2*2-es négyzet (akár 1 db plusz elem valamelyik oldalon): Kis bomba, aktiváláskor kitörli a közvetlen szomszédait.
  - Legalább 5 összefüggő darab: Nagy bomba, a kis bombához képest eggyel nagyobb sugárban robbant.
+### Képernyőképek
+![1](https://user-images.githubusercontent.com/96190894/146949910-261dd5ad-9fc4-4819-be54-e48dabdc373d.jpg)
+![2](https://user-images.githubusercontent.com/96190894/146949916-229c65fa-525a-4b3a-804c-8a91a319508f.jpg)
+![3](https://user-images.githubusercontent.com/96190894/146949922-d1e01eec-b00a-4be2-85bf-ad7330168eba.jpg)
+![4](https://user-images.githubusercontent.com/96190894/146949933-06f1a12f-0fd2-47c0-aba7-8209878182f2.jpg)
+![5](https://user-images.githubusercontent.com/96190894/146949942-ba810c26-decf-416d-93df-bb96e4dcf7d4.jpg)
 
 ## Pontozás:
 Ha sikerült teljesíteni a játék által generált feladatot, a játék előtt kiválasztott karakter pontszámához hozzáadódik az összes leszedett pártlogó száma, a karakterek ezalapján kerülnek rangsorolásra.
