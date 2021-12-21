@@ -61,6 +61,14 @@ Innen is köszönöm a feltöltőnek! :)
 ### Betűtípus:
 Mistral
 
+### Pártlogók:
+#### Az ellenzéki összefogásban résztvevő pártok:
+https://elovalasztas2021.hu/
+#### Mi Hazánk:
+https://hu.wikipedia.org/wiki/Mi_Haz%C3%A1nk_Mozgalom
+#### Fidesz:
+https://hu.wikipedia.org/wiki/Fidesz_%E2%80%93_Magyar_Polg%C3%A1ri_Sz%C3%B6vets%C3%A9g
+
 Jó szórakozást mindenkinek, és ha ismersz valakit, akinek tetszene ez a játék, oszd meg vele is! :)
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Licenc" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Ez a Mű a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Nevezd meg! - Ne add el! - Így add tovább! 4.0 Nemzetközi Licenc</a> feltételeinek megfelelően felhasználható.
